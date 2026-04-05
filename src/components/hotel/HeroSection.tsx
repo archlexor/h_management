@@ -29,6 +29,7 @@ export default function HeroSection() {
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="absolute inset-0 bg-foreground/30" />
+        <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/40 via-black/15 to-transparent" />
       </div>
 
       {/* Content */}

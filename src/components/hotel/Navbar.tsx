@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Bell, User, LogIn } from "lucide-react";
+import { Menu, X, Bell, LogIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -46,29 +46,31 @@ export default function Navbar() {
 
   return (
     <>
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? "bg-background/90 backdrop-blur-xl border-b border-border py-2 shadow-sm" 
-            : "bg-transparent py-4"
+      <nav
+        className={`fixed top-4 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border transition-all duration-500 ${
+          scrolled
+            ? "bg-[rgba(255,255,255,0.08)] backdrop-blur-[15px] border-[rgba(255,255,255,0.15)] shadow-[0_14px_36px_rgba(0,0,0,0.18)]"
+            : "bg-[rgba(255,255,255,0.08)] backdrop-blur-[15px] border-[rgba(255,255,255,0.15)] shadow-[0_10px_28px_rgba(0,0,0,0.12)]"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-10">
           <div className="flex items-center justify-between h-16">
-            <Link to="/" className="font-display text-2xl font-bold transition-transform hover:scale-105 active:scale-95">
-              <span className="text-gradient-gold">LuxeStays</span>
+            <Link
+              to="/"
+              className="font-serif text-xl font-medium tracking-[0.02em] bg-[#C5A059] text-white px-5 py-2.5 rounded-full border border-[#C5A059] transition-all duration-300 hover:bg-[#d3b172] hover:border-[#d3b172] hover:scale-105 active:scale-95"
+            >
+              <span>LuxeStays</span>
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-10">
+            <div className="hidden md:flex items-center gap-3">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-[13px] uppercase tracking-[0.1em] font-medium text-foreground/70 hover:text-primary transition-all relative group"
+                  className="font-sans text-[12px] tracking-[0.02em] font-medium bg-[#C5A059] text-white px-4 py-2 rounded-full border border-[#C5A059] transition-all duration-300 hover:bg-[#d3b172] hover:border-[#d3b172]"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-gold transition-all group-hover:w-full" />
                 </a>
               ))}
             </div>
@@ -78,11 +80,11 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setShowNotif(!showNotif)}
-                  className="relative p-2.5 rounded-full hover:bg-secondary/80 transition-all active:scale-95 group"
+                  className="relative p-2.5 rounded-full hover:bg-white/20 transition-all duration-300 active:scale-95 group"
                 >
-                  <Bell className="w-5 h-5 text-foreground group-hover:text-primary" />
+                  <Bell className="w-5 h-5 text-white/90 group-hover:text-[#C5A059] transition-colors duration-300" />
                   {unreadCount > 0 && (
-                    <span className="absolute top-1 right-1 w-4 h-4 bg-primary text-primary-foreground text-[9px] font-bold rounded-full flex items-center justify-center border-2 border-background animate-pulse">
+                    <span className="absolute top-1 right-1 w-4 h-4 bg-[#C5A059] text-slate-950 text-[9px] font-semibold rounded-full flex items-center justify-center border border-white/50 animate-pulse">
                       {unreadCount}
                     </span>
                   )}
@@ -121,7 +123,7 @@ export default function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => openAuth("signin")}
-                className="hidden md:flex items-center gap-2 bg-gradient-gold text-primary-foreground px-5 py-2.5 rounded-full text-[13px] font-bold uppercase tracking-wider shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all border border-gold/20"
+                className="hidden md:flex items-center gap-2 bg-[#C5A059] text-slate-950 px-5 py-2.5 rounded-full text-[12px] tracking-[0.02em] font-medium border border-[#C5A059] hover:bg-[#d3b172] hover:border-[#d3b172] transition-all duration-300"
               >
                 <LogIn className="w-4 h-4" />
                 Sign In
@@ -129,10 +131,10 @@ export default function Navbar() {
 
               {/* Mobile menu */}
               <button 
-                className="md:hidden p-2 rounded-full hover:bg-secondary transition-colors" 
+                className="md:hidden p-2 rounded-full hover:bg-white/20 transition-colors duration-300" 
                 onClick={() => setMobileOpen(!mobileOpen)}
               >
-                {mobileOpen ? <X className="w-6 h-6 text-primary" /> : <Menu className="w-6 h-6" />}
+                {mobileOpen ? <X className="w-6 h-6 text-[#C5A059]" /> : <Menu className="w-6 h-6 text-white" />}
               </button>
             </div>
           </div>
@@ -144,7 +146,7 @@ export default function Navbar() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "100vh", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-background/98 backdrop-blur-3xl border-t border-border overflow-hidden fixed top-[72px] inset-x-0 z-[40]"
+              className="md:hidden bg-white/30 backdrop-blur-2xl border-t border-white/45 overflow-hidden fixed top-[90px] left-3 right-3 rounded-2xl z-[40]"
             >
               <div className="px-6 py-8 flex flex-col items-center justify-center space-y-6 h-full">
                 {navLinks.map((link) => (
@@ -152,7 +154,7 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block text-2xl font-display font-medium text-foreground py-2 hover:text-primary transition-colors"
+                    className="block text-base font-sans font-medium tracking-[0.02em] text-white py-2 px-5 rounded-full bg-[#C5A059] border border-[#C5A059] hover:bg-[#d3b172] hover:border-[#d3b172] transition-all duration-300"
                   >
                     {link.label}
                   </a>
@@ -160,14 +162,14 @@ export default function Navbar() {
                 <div className="pt-8 w-full max-w-xs space-y-4">
                   <Button 
                     onClick={() => { setMobileOpen(false); openAuth("signin"); }}
-                    className="w-full bg-gradient-gold text-primary-foreground py-6 rounded-2xl text-base font-bold shadow-xl"
+                    className="w-full bg-[#C5A059] border border-[#C5A059] text-slate-950 py-6 rounded-2xl text-sm font-medium tracking-[0.02em] hover:bg-[#d3b172] hover:border-[#d3b172] transition-all duration-300"
                   >
                     Sign In
                   </Button>
                   <Button 
                     variant="outline"
                     onClick={() => { setMobileOpen(false); openAuth("signup"); }}
-                    className="w-full py-6 rounded-2xl text-base font-bold border-gold/20 text-gold"
+                    className="w-full py-6 rounded-2xl text-sm font-medium tracking-[0.02em] border-white/55 text-white hover:border-[#C5A059] hover:text-[#C5A059] transition-all duration-300"
                   >
                     Create Account
                   </Button>
