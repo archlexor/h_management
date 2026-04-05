@@ -18,6 +18,10 @@ interface AuthModalProps {
 export default function AuthModal({ isOpen, onClose, defaultTab = "signin" }: AuthModalProps) {
   const [activeTab, setActiveTab] = useState(defaultTab);
 
+  const handleTabChange = (value: string) => {
+    setActiveTab(value === "signup" ? "signup" : "signin");
+  };
+
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -49,7 +53,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "signin" }: Au
         </DialogHeader>
 
         <div className="px-8 pb-8 relative z-10">
-          <Tabs defaultValue={activeTab} onValueChange={(v) => setActiveTab(v as any)} className="w-full">
+          <Tabs defaultValue={activeTab} onValueChange={handleTabChange} className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-8 bg-secondary/50 p-1 rounded-xl">
               <TabsTrigger value="signin" className="rounded-lg font-medium transition-all data-[state=active]:bg-background data-[state=active]:shadow-sm">Sign In</TabsTrigger>
               <TabsTrigger value="signup" className="rounded-lg font-medium transition-all data-[state=active]:bg-background data-[state=active]:shadow-sm">Sign Up</TabsTrigger>
