@@ -49,8 +49,8 @@ export default function Navbar() {
       <nav
         className={`fixed top-4 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-2xl border transition-all duration-500 ${
           scrolled
-            ? "bg-[rgba(255,255,255,0.08)] backdrop-blur-[15px] border-[rgba(255,255,255,0.15)] shadow-[0_14px_36px_rgba(0,0,0,0.18)]"
-            : "bg-[rgba(255,255,255,0.08)] backdrop-blur-[15px] border-[rgba(255,255,255,0.15)] shadow-[0_10px_28px_rgba(0,0,0,0.12)]"
+            ? "bg-[rgba(255,248,235,0.14)] backdrop-blur-[15px] border-[rgba(255,248,235,0.28)] shadow-[0_14px_36px_rgba(0,0,0,0.18)]"
+            : "bg-[rgba(255,248,235,0.14)] backdrop-blur-[15px] border-[rgba(255,248,235,0.28)] shadow-[0_10px_28px_rgba(0,0,0,0.12)]"
         }`}
       >
         <div className="px-10">
