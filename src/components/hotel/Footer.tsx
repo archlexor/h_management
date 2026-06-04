@@ -11,7 +11,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-card border-t border-border py-16 px-4">
+    <footer id="contact" role="contentinfo" aria-label="Site footer" className="bg-card border-t border-border py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           <div className="col-span-2 md:col-span-1">
