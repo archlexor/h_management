@@ -180,6 +180,7 @@ export default function MermaidDiagramCard({ title, description, definition }: M
             <img
               src={svgImageUrl}
               alt={`${title} diagram`}
+              loading="lazy"
               className="block mx-auto h-auto max-w-none"
               style={{ width: `${zoomLevel * 100}%` }}
             />
